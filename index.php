@@ -23,7 +23,7 @@
         <button type="submit" name="add_coin">take this coim</button>
     </form>
     <br>
-    <button onclick="location.href='quest.php';"></button>
+    <button onclick="location.href='quest.php';">quest</button>
     <button onclick="location.href='shop.php';">Shop</button>
     <button onclick="location.href='inventory.php';">inventory</button><br>
     <?= $coin; ?>
