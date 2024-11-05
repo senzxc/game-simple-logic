@@ -39,8 +39,13 @@ function checkout() {
                 $_SESSION['inventory'] = [];
             }
             
-            // Gabungkan barang yang dibeli ke inventory
-            $_SESSION['inventory'] = array_merge($_SESSION['inventory'], $_SESSION['cart']);
+            foreach ($_SESSION['cart'] as $item) {
+                if (isset($_SESSION['inventory'][$item])) {
+                    $_SESSION['inventory'][$item]++;
+                } else {
+                    $_SESSION['inventory'][$item] = 1;
+                }
+            }
             
             $_SESSION['cart'] = []; // Kosongkan keranjang setelah pembelian
             return "Purchase successful! You bought " . implode(", ", $_SESSION['inventory']);
